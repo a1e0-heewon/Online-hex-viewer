@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <title>File Upload</title>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <a href="/">
+                <h1>Hex Editor</h1>
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li><a href="/upload">Upload</a></li>
+                    <li><a href="/fileOpen">HexEditor</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="contents">
+        {% for n in lists %}
+            <div class="list">
+                <h3>
+                    {{ n }}
+                </h3>
+            </div><br>
+        {% endfor %}
+        <br>
+        <br>
+        <br>
+        <form action="/hexview" method="POST" enctype="multipart/form-data">
+            <input type="text" name="file">
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>
